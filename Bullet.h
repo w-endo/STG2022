@@ -2,15 +2,15 @@
 #include "Engine/GameObject.h"
 
 //プレイヤーを管理するクラス
-class Player : public GameObject
+class Bullet : public GameObject
 {
     int hModel_;    //モデル番号
 public:
     //コンストラクタ
-    Player(GameObject* parent);
+    Bullet(GameObject* parent);
 
     //デストラクタ
-    ~Player();
+    ~Bullet();
 
     //初期化
     void Initialize() override;

@@ -1,32 +1,48 @@
-#include "Playr.h"
+#include "Player.h"
+#include "Engine/Model.h"
+#include "Engine/Input.h"
 
 //コンストラクタ
-Playr::Playr(GameObject* parent)
-    :GameObject(parent, "Playr")
+Player::Player(GameObject* parent)
+	:GameObject(parent, "Player"),
+	hModel_(-1)
 {
 }
 
 //デストラクタ
-Playr::~Playr()
+Player::~Player()
 {
 }
 
 //初期化
-void Playr::Initialize()
+void Player::Initialize()
 {
+    //モデルデータのロード
+    hModel_ = Model::Load("Player.fbx");
+    assert(hModel_ >= 0);
 }
 
 //更新
-void Playr::Update()
+void Player::Update()
 {
+    if(Input::IsKey(DIK_RIGHT))
+    {
+        transform_.position_.x += 0.3f;
+    }
+    if (Input::IsKey(DIK_LEFT))
+    {
+        transform_.position_.x -= 0.3f;
+    }
 }
 
 //描画
-void Playr::Draw()
+void Player::Draw()
 {
+    Model::SetTransform(hModel_, transform_);
+    Model::Draw(hModel_);
 }
 
 //開放
-void Playr::Release()
+void Player::Release()
 {
 }
