@@ -1,6 +1,6 @@
 #include "TestScene.h"
 #include "Player.h"
-#include "Bullet.h"
+
 
 //コンストラクタ
 TestScene::TestScene(GameObject * parent)
@@ -12,7 +12,7 @@ TestScene::TestScene(GameObject * parent)
 void TestScene::Initialize()
 {
 	Instantiate<Player>(this);
-	Instantiate<Bullet>(this);
+	
 }
 
 //更新

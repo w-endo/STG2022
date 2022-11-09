@@ -25,7 +25,7 @@ void Bullet::Initialize()
 //XV
 void Bullet::Update()
 {
-
+    transform_.position_.z += 0.5f;
 }
 
 //•`‰æ
