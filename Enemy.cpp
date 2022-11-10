@@ -1,6 +1,7 @@
 #include "Enemy.h"
 #include "Engine/Model.h"
 #include "Engine/Input.h"
+#include "Engine/SphereCollider.h"
 
 //コンストラクタ
 Enemy::Enemy(GameObject* parent)
@@ -23,6 +24,9 @@ void Enemy::Initialize()
 
     transform_.position_.x = (float)(rand() % 401 - 200) / 10;
     transform_.position_.z = 20.0f;
+
+    SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0, 0), 1.2f);
+    AddCollider(collision);
 }
 
 //更新
