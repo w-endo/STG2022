@@ -1,6 +1,7 @@
 #include "TestScene.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Engine/SceneManager.h"
 
 //コンストラクタ
 TestScene::TestScene(GameObject * parent)
@@ -13,7 +14,7 @@ void TestScene::Initialize()
 {
 	Instantiate<Player>(this);
 
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		Instantiate<Enemy>(this);
 	}
@@ -22,6 +23,11 @@ void TestScene::Initialize()
 //更新
 void TestScene::Update()
 {
+	if (FindObject("Enemy") == nullptr)
+	{
+		SceneManager* pSceneManager = (SceneManager*)FindObject("SceneManager");
+		pSceneManager->ChangeScene(SCENE_ID_CLEAR);
+	}
 }
 
 //描画
