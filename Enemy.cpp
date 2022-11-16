@@ -51,6 +51,10 @@ void Enemy::Release()
 void Enemy::OnCollision(GameObject* pTarget)
 {
     //“–‚½‚Á‚½‚Æ‚«‚Ìˆ—
-    KillMe();
-    pTarget->KillMe();
+    //’e‚É“–‚½‚Á‚½‚Æ‚«
+    if (pTarget->GetObjectName() == "Bullet")
+    {
+        KillMe();
+        pTarget->KillMe();
+    }
 }
