@@ -46,3 +46,11 @@ void Enemy::Draw()
 void Enemy::Release()
 {
 }
+
+//‰½‚©‚É“–‚½‚Á‚½
+void Enemy::OnCollision(GameObject* pTarget)
+{
+    //“–‚½‚Á‚½‚Æ‚«‚Ìˆ—
+    KillMe();
+    pTarget->KillMe();
+}

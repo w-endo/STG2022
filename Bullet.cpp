@@ -20,6 +20,9 @@ void Bullet::Initialize()
     //モデルデータのロード
     hModel_ = Model::Load("Bullet.fbx");
     assert(hModel_ >= 0);
+
+    SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0, 0), 0.3f);
+    AddCollider(collision);
 }
 
 //更新
