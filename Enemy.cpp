@@ -2,6 +2,7 @@
 #include "Engine/Model.h"
 #include "Engine/Input.h"
 #include "Engine/SphereCollider.h"
+#include "Engine/SceneManager.h"
 
 //コンストラクタ
 Enemy::Enemy(GameObject* parent)
@@ -56,5 +57,8 @@ void Enemy::OnCollision(GameObject* pTarget)
     {
         KillMe();
         pTarget->KillMe();
+
+        SceneManager* pSceneManager = (SceneManager*)FindObject("SceneManager");
+        pSceneManager->ChangeScene(SCENE_ID_CLEAR);
     }
 }
