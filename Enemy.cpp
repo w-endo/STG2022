@@ -3,6 +3,7 @@
 #include "Engine/Input.h"
 #include "Engine/SphereCollider.h"
 
+
 //コンストラクタ
 Enemy::Enemy(GameObject* parent)
     :GameObject(parent, "Enemy"),
@@ -45,4 +46,16 @@ void Enemy::Draw()
 //開放
 void Enemy::Release()
 {
+}
+
+//何かに当たった
+void Enemy::OnCollision(GameObject* pTarget)
+{
+    //当たったときの処理
+    //弾に当たったとき
+    if (pTarget->GetObjectName() == "Bullet")
+    {
+        KillMe();
+        pTarget->KillMe();
+    }
 }

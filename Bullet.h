@@ -1,5 +1,6 @@
 #pragma once
 #include "Engine/GameObject.h"
+#include "Engine/SphereCollider.h"
 
 //プレイヤーを管理するクラス
 class Bullet : public GameObject
